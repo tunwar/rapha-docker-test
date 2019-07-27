@@ -10,17 +10,23 @@ services:
     depends_on: 
       - nginx
     hostname: dev-server
+    environment:
+      - BUILD_TYPE=dev
+      - IMAGE_NAME=a
     ports:
       - 8082:3000 
     build:
       context: ./src
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
   prod:
     depends_on: 
       - nginx
     hostname: prod-server
+    environment:
+      - BUILD_TYPE=prod
+      - IMAGE_NAME=b
     build:
       context: ./src
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     ports:
       - 8081:3000

@@ -13,4 +13,4 @@ RUN npm install
 # Copy rest of app 
 COPY . .
 
-CMD [ "npm", "run", "dev" ] 
+CMD ./runner.sh "$BUILD_TYPE"
